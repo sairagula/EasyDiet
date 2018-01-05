@@ -1,4 +1,4 @@
-package com.akjol.easydiettabs;
+package com.akjol.easydiet;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

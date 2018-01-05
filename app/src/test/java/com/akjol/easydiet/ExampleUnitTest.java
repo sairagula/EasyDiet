@@ -1,4 +1,4 @@
-package com.akjol.easydiettabs;
+package com.akjol.easydiet;
 
 import org.junit.Test;
 

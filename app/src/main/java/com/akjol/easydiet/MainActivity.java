@@ -1,6 +1,5 @@
-package com.akjol.easydiettabs;
+package com.akjol.easydiet;
 
-import android.support.constraint.solver.Goal;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,13 +11,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -115,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 case 2:
                     Challenge tab3 = new Challenge();
                     return tab3;
+                case 3:
+                    Challenge tab4 = new Challenge();
+                    return tab4;
 
                 default:
                     return null;
@@ -123,21 +121,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 4 total pages.
+            return 4;
         }
-
-//        @Override
-//        public CharSequence getPageTitle(int position) {
-//            switch (position) {
-//                case 0:
-//                    return "GOALS";
-//                case 1:
-//                    return "REPORTS";
-//                case 2:
-//                    return "CHALLENGE";
-//            }
-//            return null;
-//        }
     }
 }
