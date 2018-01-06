@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <!-- Header with picture -->
+    <RelativeLayout style="@style/WizardHeaderContainerStyle">
+
+
+        <TextView
+            style="@style/WizardHeaderTextStyle"
+            android:layout_alignParentBottom="true"
+            android:text="@string/stepTwoString"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/rsz_money"/>
+
+    </RelativeLayout>
+
+    <!-- Banner -->
+    <LinearLayout style="@style/WizardBannerContainerStyle">
+
+        <TextView
+            style="@style/WizardBannerTextStyle"
+            android:text="@string/commitMoney"/>
+
+    </LinearLayout>
+
+    <!-- Form data -->
+    <RelativeLayout style="@style/WizardBodyContainerStyle">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/pledge_money_encourage"
+            style="@style/WizardBodyTextStyleDisclaimer"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="Financial stakes triple your chances for success. Consider commiting some amount of money."/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/pledge_money_label"
+            style="@style/WizardBodyTextStyle"
+            android:layout_centerVertical="true"
+            android:text="I want to commit (per week)"
+            />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/pled_money_input"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/pledge_money_label"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/margin_between_label_and_input"
+            android:layout_toRightOf="@+id/pledge_money_label"
+            android:entries="@array/money_amount_display"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/pledge_money_disclaimer"
+            style="@style/WizardBodyTextStyleDisclaimer"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="You keep the money if you reach your weekly goal. Otherwise, it goes to your referee."
+            />
+
+    </RelativeLayout>
+
+    <include layout="@layout/wizard_button_bar"/>
+</LinearLayout>

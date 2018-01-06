@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/testId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+            android:id="@+id/historicalWeightCardViewId"
+            style="@style/MyCardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp">
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/historicalWeightChartId"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"/>
+
+            <View
+                    android:id="@+id/splitterId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/historicalWeightChartId"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/greyBackground"/>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_centerHorizontal="true"
+                          android:layout_below="@+id/splitterId"
+                          android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/lastMonthButton"
+                        style="@style/MyFlatButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/view_inside_viewcard_margin"
+                        android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+                        android:text="@string/button_last_month"/>
+
+                <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/sixMonthsButton"
+                        style="@style/MyFlatButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:text="@string/button_last_six_month"/>
+
+                <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/maxButton"
+                        style="@style/MyFlatButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+                        android:text="@string/button_max"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+            android:id="@+id/ribbonParentId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:layout_marginBottom="15dp"
+            android:elevation="4dp"
+            android:background="@drawable/green_ribbon">
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/ribbonId"
+                style="@style/RibbonStyle"
+                android:text="@string/ribbon_text"/>
+    </LinearLayout>
+
+</RelativeLayout>

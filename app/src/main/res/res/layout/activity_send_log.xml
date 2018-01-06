@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/error_image"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/something_went_wrong" />
+
+    <TextView
+        android:id="@+id/confirm_weight_content_id"
+        style="@style/MyTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/error_image"
+        android:text="Please, send logs to us so that we can fix the problem." />
+
+    <Button
+        android:id="@+id/send_log_deny"
+        style="@style/MyFlatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/confirm_weight_content_id"
+        android:layout_marginLeft="@dimen/view_inside_viewcard_margin"
+        android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+        android:text="No, thanks" />
+
+    <Button
+        android:id="@+id/send_log_confirm"
+        style="@style/MyFlatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/confirm_weight_content_id"
+        android:layout_marginLeft="@dimen/view_inside_viewcard_margin"
+        android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+        android:text="Send" />
+</RelativeLayout>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/confirmCardId"
+        style="@style/MyCardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="@string/content_description"
+                android:src="@drawable/confirm_image" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/confirm_weight_content_id"
+                style="@style/MyTextStyle"
+                android:layout_below="@+id/image"
+                android:text="@string/confirm_action_item_text" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/denyWeightInButton"
+                style="@style/MyFlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/confirm_weight_content_id"
+                android:layout_marginLeft="@dimen/view_inside_viewcard_margin"
+                android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+                android:layout_toLeftOf="@+id/confirmWeightInButton"
+                android:text="@string/deny_button" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/confirmWeightInButton"
+                style="@style/MyFlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/confirm_weight_content_id"
+                android:layout_marginLeft="@dimen/view_inside_viewcard_margin"
+                android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+                android:text="@string/confirm_button" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

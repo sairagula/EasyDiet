@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/challengeCardId"
+        style="@style/MyCardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/challengeCardLinearLayoutId"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/challenge_image_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/content_description"
+                android:src="@drawable/brush_your_teeth" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/challenge_subject_id"
+                style="@style/ChallengeSubjectStyle"
+                android:text="@string/confirm_action_item_text" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

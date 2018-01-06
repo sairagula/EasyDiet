@@ -1,0 +1,171 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <!-- Header with picture -->
+    <RelativeLayout style="@style/WizardHeaderContainerStyle">
+
+        <TextView
+            style="@style/WizardHeaderTextStyle"
+            android:layout_alignParentBottom="true"
+            android:text="@string/firstStepString"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="-2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/rsz_scale"/>
+
+    </RelativeLayout>
+
+    <!-- Banner -->
+    <LinearLayout style="@style/WizardBannerContainerStyle">
+
+        <TextView
+            style="@style/WizardBannerTextStyle"
+            android:text="@string/tellMeAboutYou"/>
+
+    </LinearLayout>
+
+    <!-- Form data -->
+    <LinearLayout
+        style="@style/WizardBodyContainerStyle"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_current_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="90"
+                app:hintTextAppearance="@style/GoalWizard.FloatingHintStyle">
+
+                <EditText
+                    android:id="@+id/input_current_weight"
+                    style="@style/WizardBodyFullEditTextStyle"
+                    android:hint="Your current weight"
+                    android:inputType="numberDecimal"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/weight_unit_spinner1"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_weight="10"
+                android:entries="@array/weight_unit"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_goal_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_weight="90"
+                app:hintTextAppearance="@style/GoalWizard.FloatingHintStyle">
+
+                <EditText
+                    android:id="@+id/input_goal_weight"
+                    style="@style/WizardBodyFullEditTextStyle"
+                    android:hint="Your goal to lose per week"
+                    android:inputType="numberDecimal"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/weight_unit_spinner2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:layout_weight="10"
+                android:entries="@array/weight_unit"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <!-- Goal start bubble -->
+            <LinearLayout
+                android:id="@+id/bubbleParentId_wizard"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@drawable/speach_bubble_first_half">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/bubbleId"
+                    style="@style/BubbleTextStyle"
+                    android:layout_gravity="top"
+                    android:text="today"/>
+            </LinearLayout>
+
+            <!-- Goal duration text -->
+            <TextView
+                android:id="@+id/goalDurationInText"
+                style="@style/WizardBodyTextStyle"
+                android:layout_marginLeft="@dimen/wizard_steps_padding"
+                android:layout_toEndOf="@+id/bubbleParentId_wizard"
+                android:layout_toRightOf="@+id/bubbleParentId_wizard"
+                android:text="Goal duration is 6 weeks"
+                android:textColor="@color/greenAccentColor"/>
+
+
+            <!-- Goal progress bar -->
+            <ProgressBar
+                android:id="@+id/goalProgressBarId_wizard"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_below="@+id/bubbleParentId_wizard"
+                android:progress="2"
+                android:progressDrawable="@drawable/custom_progressbar"/>
+
+            <!-- Goal end bubble -->
+            <LinearLayout
+                android:id="@+id/bubbleParentId_wizardGoalEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/goalProgressBarId_wizard"
+                android:background="@drawable/goal_end_bubble">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/goalEndBubbleId"
+                    style="@style/BubbleTextStyle"
+                    android:layout_gravity="bottom"
+                    android:text="goal end: dec 24"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/wizard_button_bar"/>
+
+</LinearLayout>

@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <!-- Header with picture -->
+    <RelativeLayout style="@style/WizardHeaderContainerStyle">
+
+
+        <TextView
+            style="@style/WizardHeaderTextStyle"
+            android:layout_alignParentBottom="true"
+            android:text="@string/stepThreeString"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="-10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/rsz_referee"/>
+
+    </RelativeLayout>
+
+    <!-- Banner -->
+    <LinearLayout style="@style/WizardBannerContainerStyle">
+
+        <TextView
+            style="@style/WizardBannerTextStyle"
+            android:text="@string/getReferee"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/WizardBodyContainerStyle"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/pledge_money_encourage"
+            style="@style/WizardBodyTextStyleDisclaimer"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="You referee will have to verify and approve your weekly weight check-ins. Choose someone whom you see often, e.g. your spouse, parents or roommates."/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_referee_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:hintTextAppearance="@style/GoalWizard.FloatingHintStyle">
+
+            <EditText
+                android:id="@+id/input_referee_email"
+                style="@style/WizardBodyFullEditTextStyle"
+                android:hint="Email address of your referee"
+                android:inputType="textEmailAddress"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/wizard_button_bar"/>
+
+</LinearLayout>

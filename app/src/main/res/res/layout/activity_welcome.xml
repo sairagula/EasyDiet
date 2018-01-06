@@ -1,0 +1,105 @@
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawerLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".WelcomeActivity">
+
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/welcomeBackgroundImageId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/activity_welcome_background_image_conent_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/welcome_background"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+
+        <!-- Logo and App name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="70"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/com_parse_ui_parse_login_app_logo"/>
+
+            <LinearLayout
+                android:id="@+id/welcomePageTextParent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/welcomeEasyHabitText"
+                    style="@style/WelcomePageAppName"
+                    android:text="EasyHabit"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/welcomeWeightText"
+                    style="@style/WelcomePageAppName"
+                    android:layout_marginLeft="12dp"
+                    android:text="weight"
+                    android:textColor="@color/darkAppNameColor"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:id="@+id/parse_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/com_parse_ui_large_vertical_spacing">
+
+                <Button
+                    android:id="@+id/parse_login_button"
+                    style="@style/MyTransparenButton"
+                    android:layout_weight="0.5"
+                    android:onClick="loginSignupHandler"
+                    android:text="@string/com_parse_ui_parse_login_button_label"/>
+
+                <Button
+                    android:id="@+id/parse_signup_button"
+                    style="@style/MyTransparenButton"
+                    android:layout_marginLeft="@dimen/com_parse_ui_small_horizontal_spacing"
+                    android:layout_weight="0.5"
+                    android:onClick="maybeLaterHandler"
+                    android:text="Exlpore"/>
+
+            </LinearLayout>
+            <!--
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/welcomeMaybeLaterButtonId"
+                            style="@style/ParseLoginUI.HelpButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/view_inside_viewcard_margin"
+                            android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+                            android:onClick="maybeLaterHandler"
+                            android:text="Maybe later"/>
+                            -->
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.DrawerLayout>

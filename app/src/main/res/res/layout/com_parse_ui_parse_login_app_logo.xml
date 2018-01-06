@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Override Parse's logo UI
+Also don't forget to update parse includes to be follow (i.e. remove width/height specification)
+<include
+        layout="@layout/com_parse_ui_parse_login_app_logo"
+        />
+-->
+<ImageView
+    android:id="@+id/app_logo"
+    style="@style/WelcomeLogoImageStyle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:src="@drawable/welcome_logo"/>

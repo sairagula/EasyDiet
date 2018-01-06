@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/weight_in_form"/>
+
+    <include
+        layout="@layout/weight_in_survey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weight_in_parent_layout"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_submit_weekly_survery_button"
+        style="@style/RedSendFABStyle"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/surveyTopLevelLayout"
+        android:layout_marginTop="-25dp"
+        android:clickable="true"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/wizard_button_bar_parent_layout"
+    style="?android:attr/buttonBarStyle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="@dimen/wizard_horizontal_margin"
+    android:paddingLeft="@dimen/wizard_horizontal_margin"
+    android:background="@color/greyButtonBarRibbonColor">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/prev_button"
+        style="@style/MyFlatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:gravity="left|center_vertical"
+        android:text="Maybe later"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/next_button"
+        style="@style/MyFlatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="right|center_vertical"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="Agree &amp; continue >"/>
+
+</RelativeLayout>

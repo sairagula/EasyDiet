@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_settings_id">
+
+        <item
+            android:id="@+id/action_send_feedback"
+            android:icon="@drawable/feedback"
+            android:title="Send Feedback"/>
+        <item
+            android:id="@+id/action_login"
+            android:icon="@drawable/login"
+            android:title="Log in"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/action_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/action_logout"/>
+
+    </group>
+    <item android:title="Test Data">
+        <menu>
+            <item
+                android:id="@+id/action_refresh_data"
+                android:icon="@drawable/cleanup_data"
+                android:title="Refresh data"/>
+
+            <item
+                android:id="@+id/action_create_goal"
+                android:icon="@drawable/create_goal"
+                android:title="@string/action_create_goal"/>
+
+            <item
+                android:id="@+id/action_send_push"
+                android:icon="@drawable/create_goal"
+                android:title="Send push notificaton"/>
+
+            <item
+                android:id="@+id/action_create_weight_in_action"
+                android:icon="@drawable/create_goal"
+                android:title="Create weight in action"/>
+
+            <item
+                android:id="@+id/action_create_confirm_action"
+                android:icon="@drawable/create_goal"
+                android:title="Create confirm action"/>
+
+            <item
+                android:id="@+id/action_reset_alarm"
+                android:icon="@drawable/create_goal"
+                android:title="Reset alarm"/>
+
+            <item
+                android:id="@+id/action_fire_alarm"
+                android:icon="@drawable/create_goal"
+                android:title="Fake Fire Alarm"/>
+
+
+            <item
+                android:id="@+id/action_cleanup_data"
+                android:icon="@drawable/cleanup_data"
+                android:title="@string/action_data_cleanup"/>
+
+        </menu>
+    </item>
+
+</menu>

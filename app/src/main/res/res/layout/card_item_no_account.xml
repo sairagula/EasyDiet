@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/noGoalCardId"
+        style="@style/MyCardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/noGoalMessageId"
+                style="@style/MyTextStyle"
+                android:layout_alignParentTop="true"
+                android:gravity="center_horizontal"
+                android:text="@string/create_account_and_goal_message"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/create_goal_button_id"
+                style="@style/MyFlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/noGoalMessageId"
+                android:layout_marginLeft="@dimen/view_inside_viewcard_margin"
+                android:layout_marginRight="@dimen/view_inside_viewcard_margin"
+                android:onClick="loginOnClick"
+                android:text="@string/create_account_and_goal_button_label"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
