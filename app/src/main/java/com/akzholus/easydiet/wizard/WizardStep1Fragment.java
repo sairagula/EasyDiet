@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,13 @@ import android.widget.EditText;
 import com.akzholus.easydiet.R;
 
 import com.akzholus.easydiet.common.Constants;
+import com.akzholus.easydiet.common.GoalProcessPolicy;
 import com.akzholus.easydiet.listeners.InputValidation;
+
+import org.joda.time.DateTime;
+import static com.akzholus.easydiet.common.Formatters.formatGoalDateTime;
+
+
 
 public class WizardStep1Fragment extends WizardBaseFragment {
 
@@ -38,9 +45,18 @@ public class WizardStep1Fragment extends WizardBaseFragment {
         setNextButtonLabelAndListener(view, "Next >", new NextOnClickListener(getActivity(), viewPager, view));
         setPrevButtonLabelAndListener(view, "< Back", new BackOnClickListener(viewPager));
 
+        initalizeProgressBar(view);
 
         return view;
     }
+
+    private void initalizeProgressBar(View view) {
+        AppCompatTextView goalEndBubble = (AppCompatTextView) view.findViewById(R.id.goalEndBubbleId);
+        String goalEnd = String.format("goal end: %s", formatGoalDateTime(
+                DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS))));
+        goalEndBubble.setText(goalEnd);
+    }
+
 
     static class BackOnClickListener implements View.OnClickListener {
         private ViewPager viewPager;
