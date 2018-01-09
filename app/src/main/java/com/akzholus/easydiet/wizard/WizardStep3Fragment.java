@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.akzholus.easydiet.R;
+import com.akzholus.easydiet.common.Utils;
+
 
 public class WizardStep3Fragment extends WizardBaseFragment {
 
@@ -58,12 +60,28 @@ public class WizardStep3Fragment extends WizardBaseFragment {
 
         public CreateGoalOnClickListener(FragmentActivity activity, View view) {
             this.activity = activity;
+            inputLayoutEmail = (TextInputLayout) view.findViewById(R.id.input_layout_referee_email);
+            inputEmail = (EditText) view.findViewById(R.id.input_referee_email);
         }
 
         @Override
         public void onClick(View view) {
+            if (validateEmail()) {
                 Toast.makeText(view.getContext(), "Goal is created", Toast.LENGTH_LONG).show();
                 activity.finish();
+            }
+        }
+
+
+        private boolean validateEmail() {
+            String email = inputEmail.getText().toString().trim();
+            if (email.isEmpty() || !Utils.isValidEmail(email)) {
+                inputLayoutEmail.setError(activity.getString(R.string.err_msg_email));
+                return false;
+            } else {
+                inputLayoutEmail.setErrorEnabled(false);
+            }
+            return true;
         }
     }
 }
