@@ -22,7 +22,7 @@ public final class GoalVT {
 
     @Override
     public String toString() {
-        return "101";
+        return "Your weight is:" + this.getActualWeights() + "Your weekly goal is to loose:" + this.getGoalDurationInWeeks() + "You will start: " + this.getFormattedStartDate();
     }
 
     public float getActualWeights() {
