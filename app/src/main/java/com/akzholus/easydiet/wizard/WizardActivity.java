@@ -7,9 +7,11 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.akzholus.easydiet.GoalVT;
 import com.akzholus.easydiet.R;
 
 public class WizardActivity extends FragmentActivity {
+    private static GoalVT goalVT = null;
 
     FragmentPagerAdapter adapterViewPager;
 
@@ -39,5 +41,12 @@ public class WizardActivity extends FragmentActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public static GoalVT getWizardGoal() {
+        if (goalVT == null) {
+            goalVT = new GoalVT();
+        }
+        return goalVT;
     }
 }

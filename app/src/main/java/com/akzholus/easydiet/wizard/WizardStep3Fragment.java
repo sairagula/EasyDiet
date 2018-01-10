@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.akzholus.easydiet.GoalVT;
+import com.akzholus.easydiet.MainActivity;
 import com.akzholus.easydiet.R;
 import com.akzholus.easydiet.common.Utils;
 
@@ -67,7 +69,7 @@ public class WizardStep3Fragment extends WizardBaseFragment {
         @Override
         public void onClick(View view) {
             if (validateEmail()) {
-                Toast.makeText(view.getContext(), "Goal is created", Toast.LENGTH_LONG).show();
+                Toast.makeText(view.getContext(), "Goal is created: " + WizardActivity.getWizardGoal().toString(), Toast.LENGTH_LONG).show();
                 activity.finish();
             }
         }
@@ -81,6 +83,9 @@ public class WizardStep3Fragment extends WizardBaseFragment {
             } else {
                 inputLayoutEmail.setErrorEnabled(false);
             }
+//            WizardActivity.getWizardGoal();
+            GoalVT goalVT = WizardActivity.getWizardGoal();
+            goalVT.setRefereeEmailAddress(email);
             return true;
         }
     }

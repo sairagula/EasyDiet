@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.akzholus.easydiet.GoalVT;
 import com.akzholus.easydiet.R;
 
 import com.akzholus.easydiet.common.Constants;
@@ -129,7 +130,11 @@ public class WizardStep1Fragment extends WizardBaseFragment {
 
                 inputLayoutGoalWeight.setErrorEnabled(false);
             }
-
+            GoalVT goalVT = WizardActivity.getWizardGoal();
+            goalVT.setActualWeights(currentWeightNum);
+            goalVT.setGoalPoundsPerWeek(goalWeightNum);
+            goalVT.setGoalDurationInWeeks(Constants.GOAL_LENGTH_IN_WEEKS);
+            goalVT.setFormattedStartDate(DateTime.now().withTimeAtStartOfDay());
             return true;
         }
     }
