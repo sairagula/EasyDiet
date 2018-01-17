@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,12 +24,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -75,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     @Override
@@ -91,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
                                     Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
                                             new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build())).build(),
                     RC_SIGN_IN);
-        } else {
-            Toast.makeText(this, "User is logged in.", Toast.LENGTH_LONG).show();
         }
     }
 

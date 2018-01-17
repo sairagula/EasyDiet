@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,16 @@ import com.akzholus.easydiet.GoalVT;
 import com.akzholus.easydiet.MainActivity;
 import com.akzholus.easydiet.R;
 import com.akzholus.easydiet.common.Utils;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.joda.time.DateTime;
 
 
 public class WizardStep3Fragment extends WizardBaseFragment {
+    private DatabaseReference mDatabase;
 
     public static WizardStep3Fragment newInstance(ViewPager viewPager) {
         WizardStep3Fragment fragment = new WizardStep3Fragment();
@@ -28,6 +36,7 @@ public class WizardStep3Fragment extends WizardBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     // Inflate the view for the fragment based on layout XML
@@ -36,7 +45,7 @@ public class WizardStep3Fragment extends WizardBaseFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.wizard_step3, container, false);
 
-        setNextButtonLabelAndListener(view, "Create goal", new CreateGoalOnClickListener(getActivity(), view));
+        setNextButtonLabelAndListener(view, "Create goal", new CreateGoalOnClickListener(getActivity(), view, mDatabase));
         setPrevButtonLabelAndListener(view, "< Back", new BackOnClickListener(viewPager));
 
         return view;
@@ -59,17 +68,19 @@ public class WizardStep3Fragment extends WizardBaseFragment {
         private FragmentActivity activity;
         private TextInputLayout inputLayoutEmail;
         private EditText inputEmail;
+        private DatabaseReference mDatabase;
 
-        public CreateGoalOnClickListener(FragmentActivity activity, View view) {
+        public CreateGoalOnClickListener(FragmentActivity activity, View view, DatabaseReference mDatabase) {
             this.activity = activity;
             inputLayoutEmail = (TextInputLayout) view.findViewById(R.id.input_layout_referee_email);
             inputEmail = (EditText) view.findViewById(R.id.input_referee_email);
+            this.mDatabase = mDatabase;
         }
 
         @Override
         public void onClick(View view) {
             if (validateEmail()) {
-                Toast.makeText(view.getContext(), "Goal is created: " + WizardActivity.getWizardGoal().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(view.getContext(), "Goal is created!", Toast.LENGTH_LONG).show();
                 activity.finish();
             }
         }
@@ -83,9 +94,12 @@ public class WizardStep3Fragment extends WizardBaseFragment {
             } else {
                 inputLayoutEmail.setErrorEnabled(false);
             }
-//            WizardActivity.getWizardGoal();
             GoalVT goalVT = WizardActivity.getWizardGoal();
             goalVT.setRefereeEmailAddress(email);
+            Log.d("MyTAG", "Inserting data: " + goalVT.toString());
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            mDatabase.child(currentUser.getUid()).child("goals").child(goalVT.getGoalId()).setValue(goalVT);
+            WizardActivity.clearGoal();
             return true;
         }
     }

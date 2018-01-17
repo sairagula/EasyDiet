@@ -3,12 +3,15 @@ package com.akzholus.easydiet.wizard;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.akzholus.easydiet.GoalVT;
 import com.akzholus.easydiet.R;
+
 
 public class WizardActivity extends FragmentActivity {
     private static GoalVT goalVT = null;
@@ -19,10 +22,12 @@ public class WizardActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wizard);
+
         ViewPager vpPager = (ViewPager) findViewById(R.id.wizardViewPager);
         adapterViewPager = new WizardPageAdapter(getSupportFragmentManager(), vpPager);
         vpPager.setAdapter(adapterViewPager);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -48,5 +53,9 @@ public class WizardActivity extends FragmentActivity {
             goalVT = new GoalVT();
         }
         return goalVT;
+    }
+
+    public static void clearGoal() {
+        goalVT = null;
     }
 }

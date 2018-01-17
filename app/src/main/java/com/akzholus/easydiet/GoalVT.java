@@ -8,24 +8,37 @@ import android.support.v4.util.Preconditions;
  */
 
 import com.akzholus.easydiet.common.Formatters;
-
 import org.joda.time.DateTime;
+//import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.UUID;
 
 public final class GoalVT {
+    private String goalId;
     private float actualWeight;
     private DateTime startDate;
     private DateTime endDate;
     private float goalPoundsPerWeek;
     private int goalDurationInWeeks;
-    private int pledgeAmount;
+    private float pledgeAmount;
     private String refereeEmailAddress;
+
+    public GoalVT() {
+        goalId = UUID.randomUUID().toString();
+    }
 
     @Override
     public String toString() {
-        return "Your weight is:" + this.getActualWeights() + "Your weekly goal is to loose:" + this.getGoalDurationInWeeks() + "You will start: " + this.getFormattedStartDate();
+        return "Your weight is:" + this.getActualWeights() + " Your weekly goal is to loose: " + this.getGoalDurationInWeeks() + "You will start: " + this.getFormattedStartDate() + " Goal ends: " + this.getFormattedEndDate();
+    }
+
+    public String getGoalId() {
+        return goalId;
     }
 
     public float getActualWeights() {
+
         return actualWeight;
     }
 
@@ -70,7 +83,7 @@ public final class GoalVT {
         return pledgeAmount;
     }
 
-    public void setPledgeAmount(int pledgeAmount){
+    public void setPledgeAmount(float pledgeAmount){
         this.pledgeAmount = pledgeAmount;
     }
 

@@ -2,10 +2,12 @@ package com.akzholus.easydiet.wizard;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.AppCompatSpinner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.akzholus.easydiet.GoalVT;
 import com.akzholus.easydiet.R;
 
 public class WizardStep2Fragment extends WizardBaseFragment {
@@ -47,15 +49,23 @@ public class WizardStep2Fragment extends WizardBaseFragment {
     }
 
     static class NextOnClickListener implements View.OnClickListener {
+        private AppCompatSpinner moneySpinner;
         private ViewPager viewPager;
 
         public NextOnClickListener(View view, ViewPager viewPager) {
+
+            moneySpinner = (AppCompatSpinner)view.findViewById(R.id.pled_money_input);
             this.viewPager = viewPager;
         }
 
         @Override
         public void onClick(View view) {
+            String value = moneySpinner.getSelectedItem().toString();
+            Float floatValue = Float.parseFloat(value.replace("$", "").trim());
+            WizardActivity.getWizardGoal().setPledgeAmount(floatValue);
+
             viewPager.setCurrentItem(3);
         }
+
     }
 }

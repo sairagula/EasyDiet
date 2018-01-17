@@ -2,10 +2,12 @@ package com.akzholus.easydiet.wizard;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +23,11 @@ import com.akzholus.easydiet.listeners.InputValidation;
 import org.joda.time.DateTime;
 import static com.akzholus.easydiet.common.Formatters.formatGoalDateTime;
 
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class WizardStep1Fragment extends WizardBaseFragment {
+//    private DatabaseReference mDatabase;
 
     public static WizardStep1Fragment newInstance(ViewPager viewPager) {
         WizardStep1Fragment fragment = new WizardStep1Fragment();
@@ -35,12 +39,17 @@ public class WizardStep1Fragment extends WizardBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        mDatabase = FirebaseDatabase.getInstance().getReference("goals");
+
     }
 
     // Inflate the view for the fragment based on layout XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         View view = inflater.inflate(R.layout.wizard_step1, container, false);
 
         setNextButtonLabelAndListener(view, "Next >", new NextOnClickListener(getActivity(), viewPager, view));
@@ -135,6 +144,7 @@ public class WizardStep1Fragment extends WizardBaseFragment {
             goalVT.setGoalPoundsPerWeek(goalWeightNum);
             goalVT.setGoalDurationInWeeks(Constants.GOAL_LENGTH_IN_WEEKS);
             goalVT.setFormattedStartDate(DateTime.now().withTimeAtStartOfDay());
+            goalVT.setFormattedEndDate(DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS)));
             return true;
         }
     }
