@@ -8,6 +8,7 @@ import android.support.v4.util.Preconditions;
  */
 
 import com.akzholus.easydiet.common.Formatters;
+
 import org.joda.time.DateTime;
 //import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
@@ -46,20 +47,27 @@ public final class GoalVT {
         this.actualWeight = actualWeight;
     }
 
+    public DateTime getStartDate() {
+        return startDate;
+    }
 
     public String getFormattedStartDate() {
         return Formatters.formatGoalDateTime(startDate);
     }
 
-    public void setFormattedStartDate(DateTime startDate) {
+    public void setStartDate(DateTime startDate) {
         this.startDate = startDate;
+    }
+
+    public DateTime getEndDate() {
+        return endDate;
     }
 
     public String getFormattedEndDate() {
         return Formatters.formatGoalDateTime(endDate);
     }
 
-    public void setFormattedEndDate(DateTime endDate) {
+    public void setEndDate(DateTime endDate) {
         this.endDate = endDate;
     }
 
@@ -83,7 +91,7 @@ public final class GoalVT {
         return pledgeAmount;
     }
 
-    public void setPledgeAmount(float pledgeAmount){
+    public void setPledgeAmount(float pledgeAmount) {
         this.pledgeAmount = pledgeAmount;
     }
 
@@ -91,7 +99,7 @@ public final class GoalVT {
         return refereeEmailAddress;
     }
 
-    public void setRefereeEmailAddress(String refereeEmailAddress){
+    public void setRefereeEmailAddress(String refereeEmailAddress) {
         this.refereeEmailAddress = refereeEmailAddress;
     }
 }

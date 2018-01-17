@@ -21,6 +21,7 @@ import com.akzholus.easydiet.common.GoalProcessPolicy;
 import com.akzholus.easydiet.listeners.InputValidation;
 
 import org.joda.time.DateTime;
+
 import static com.akzholus.easydiet.common.Formatters.formatGoalDateTime;
 
 import com.google.firebase.database.DatabaseReference;
@@ -47,7 +48,6 @@ public class WizardStep1Fragment extends WizardBaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
 
         View view = inflater.inflate(R.layout.wizard_step1, container, false);
@@ -143,8 +143,8 @@ public class WizardStep1Fragment extends WizardBaseFragment {
             goalVT.setActualWeights(currentWeightNum);
             goalVT.setGoalPoundsPerWeek(goalWeightNum);
             goalVT.setGoalDurationInWeeks(Constants.GOAL_LENGTH_IN_WEEKS);
-            goalVT.setFormattedStartDate(DateTime.now().withTimeAtStartOfDay());
-            goalVT.setFormattedEndDate(DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS)));
+            goalVT.setStartDate(DateTime.now().withTimeAtStartOfDay());
+            goalVT.setEndDate(DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS)));
             return true;
         }
     }
