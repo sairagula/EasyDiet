@@ -1,17 +1,11 @@
 package com.akzholus.easydiet;
-
-
-/**
- * Created by sairagul on 1/8/18.
- */
-
 import com.akzholus.easydiet.common.Formatters;
 
 //import com.google.firebase.database.FirebaseDatabase;
 
-        import java.util.Date;
+import java.util.Date;
 
-        import java.util.UUID;
+import java.util.UUID;
 
 public final class GoalVT {
     private String goalId;
@@ -29,7 +23,7 @@ public final class GoalVT {
 
     @Override
     public String toString() {
-        return "Your weight is:" + this.getActualWeights() + " Your weekly goal is to loose: " + this.getGoalDurationInWeeks() + "You will start: " + this.getFormattedStartDate() + " Goal ends: " + this.getFormattedEndDate();
+        return "Your weight is:" + this.getActualWeights() + " Your weekly goal is to loose: " + this.getGoalPoundsPerWeek() + "You will start: " + this.getFormattedStartDate() + " Goal ends: " + this.getFormattedEndDate();
     }
 
     public String getGoalId() {

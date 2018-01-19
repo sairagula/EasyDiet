@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
-    private ListView mListView;
-    private List<GoalVT> goals = new ArrayList<>();
 
 
     /**
@@ -70,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-//        mListView = (ListView) findViewById(R.id.listview);
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -103,31 +102,6 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-
-        mDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot allDataForUser) {
-                goals.clear();
-                Log.d(TAG, "DATA SNAPSHOT: " + allDataForUser.getKey() + " ," + allDataForUser.toString());
-                for (DataSnapshot child : allDataForUser.getChildren()) {
-                    if (child.getKey().equals("goals")) {
-                        for (DataSnapshot goalData : child.getChildren()) {
-                            Log.d(TAG, "GOAL-ID SNAPSHOT: " + goalData.getKey() + " ," + goalData.getValue());
-                            GoalVT goal = goalData.getValue(GoalVT.class);
-//                            Log.d(TAG, "DATA: " + goal.toPrettyString());
-                            goals.add(goal);
-                        }
-                    }
-                }
-//                ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,goals);
-//                mListView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
