@@ -1,7 +1,5 @@
 package com.akzholus.easydiet;
 
-import android.support.v4.util.Preconditions;
-
 
 /**
  * Created by sairagul on 1/8/18.
@@ -9,17 +7,17 @@ import android.support.v4.util.Preconditions;
 
 import com.akzholus.easydiet.common.Formatters;
 
-import org.joda.time.DateTime;
 //import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.DatabaseReference;
 
-import java.util.UUID;
+        import java.util.Date;
+
+        import java.util.UUID;
 
 public final class GoalVT {
     private String goalId;
     private float actualWeight;
-    private DateTime startDate;
-    private DateTime endDate;
+    private Date startDate;
+    private Date endDate;
     private float goalPoundsPerWeek;
     private int goalDurationInWeeks;
     private float pledgeAmount;
@@ -47,7 +45,7 @@ public final class GoalVT {
         this.actualWeight = actualWeight;
     }
 
-    public DateTime getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
@@ -55,11 +53,11 @@ public final class GoalVT {
         return Formatters.formatGoalDateTime(startDate);
     }
 
-    public void setStartDate(DateTime startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public DateTime getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
@@ -67,7 +65,7 @@ public final class GoalVT {
         return Formatters.formatGoalDateTime(endDate);
     }
 
-    public void setEndDate(DateTime endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

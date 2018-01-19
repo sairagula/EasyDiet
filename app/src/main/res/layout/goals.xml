@@ -20,4 +20,12 @@
         tools:layout_constraintTop_creator="1"
         android:text="Goals text" />
 
+    <ListView
+        android:layout_width="395dp"
+        android:layout_height="608dp"
+        android:id="@+id/listview"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="43dp" />
+
+
 </android.support.constraint.ConstraintLayout>

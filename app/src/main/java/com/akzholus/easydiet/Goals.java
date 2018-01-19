@@ -1,8 +1,5 @@
 package com.akzholus.easydiet;
 
-/**
- * Created by sairagul on 1/4/18.
- */
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;

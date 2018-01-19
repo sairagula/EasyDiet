@@ -20,15 +20,28 @@ import com.akzholus.easydiet.common.Constants;
 import com.akzholus.easydiet.common.GoalProcessPolicy;
 import com.akzholus.easydiet.listeners.InputValidation;
 
-import org.joda.time.DateTime;
+//import org.joda.time.DateTime;
 
 import static com.akzholus.easydiet.common.Formatters.formatGoalDateTime;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+
 public class WizardStep1Fragment extends WizardBaseFragment {
+    private static final String TAG = "";
 //    private DatabaseReference mDatabase;
+
+    Calendar cal = Calendar.getInstance();   // GregorianCalendar
+    Date date = cal.getTime();
+    DateFormat formatter;
+    Calendar calendar_date;
+
+
 
     public static WizardStep1Fragment newInstance(ViewPager viewPager) {
         WizardStep1Fragment fragment = new WizardStep1Fragment();
@@ -61,10 +74,16 @@ public class WizardStep1Fragment extends WizardBaseFragment {
     }
 
     private void initalizeProgressBar(View view) {
+        Calendar calendar_date = (Calendar) cal.clone();
+        calendar_date.roll(Calendar.WEEK_OF_YEAR, 6 );
+
         AppCompatTextView goalEndBubble = (AppCompatTextView) view.findViewById(R.id.goalEndBubbleId);
-        String goalEnd = String.format("goal end: %s", formatGoalDateTime(
-                DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS))));
+//        String goalEnd = String.format("goal end: %s", formatGoalDateTime(
+//                DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS))));
+        String goalEnd = String.format("goal ends on: " + formatGoalDateTime(calendar_date.getTime()));
         goalEndBubble.setText(goalEnd);
+
+        Log.d(TAG, "DATE: "+ goalEnd );
     }
 
 
@@ -143,8 +162,14 @@ public class WizardStep1Fragment extends WizardBaseFragment {
             goalVT.setActualWeights(currentWeightNum);
             goalVT.setGoalPoundsPerWeek(goalWeightNum);
             goalVT.setGoalDurationInWeeks(Constants.GOAL_LENGTH_IN_WEEKS);
-            goalVT.setStartDate(DateTime.now().withTimeAtStartOfDay());
-            goalVT.setEndDate(DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS)));
+            goalVT.setStartDate(new Date());
+
+            Calendar cal = Calendar.getInstance();   // GregorianCalendar
+            Date date = cal.getTime();
+            Calendar calendar_date = (Calendar) cal.clone();
+            calendar_date.roll(Calendar.WEEK_OF_YEAR, 6 );
+            goalVT.setEndDate(calendar_date.getTime());
+            //goalVT.setEndDate(DateTime.now().plus(GoalProcessPolicy.getDurationBetweenCheckins().multipliedBy(Constants.GOAL_LENGTH_IN_WEEKS)));
             return true;
         }
     }

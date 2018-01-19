@@ -16,8 +16,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.akzholus.easydiet.fragments.ChallengesFragment;
 import com.akzholus.easydiet.wizard.WizardActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,9 +38,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "ViewDatabase";
+
     private static final int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+
+    private ListView mListView;
     private List<GoalVT> goals = new ArrayList<>();
 
 
@@ -63,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+//        mListView = (ListView) findViewById(R.id.listview);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -89,21 +97,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+
+        mDatabase.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot allDataForUser) {
                 goals.clear();
-                for(DataSnapshot goalSnapshot : dataSnapshot.getChildren()){
-                    GoalVT goal = goalSnapshot.getValue(GoalVT.class);
-                    goals.add(goal);
+                Log.d(TAG, "DATA SNAPSHOT: " + allDataForUser.getKey() + " ," + allDataForUser.toString());
+                for (DataSnapshot child : allDataForUser.getChildren()) {
+                    if (child.getKey().equals("goals")) {
+                        for (DataSnapshot goalData : child.getChildren()) {
+                            Log.d(TAG, "GOAL-ID SNAPSHOT: " + goalData.getKey() + " ," + goalData.getValue());
+                            GoalVT goal = goalData.getValue(GoalVT.class);
+//                            Log.d(TAG, "DATA: " + goal.toPrettyString());
+                            goals.add(goal);
+                        }
+                    }
                 }
+//                ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,goals);
+//                mListView.setAdapter(adapter);
             }
 
             @Override
@@ -185,10 +202,10 @@ public class MainActivity extends AppCompatActivity {
                     Reports tab2 = new Reports();
                     return tab2;
                 case 2:
-                    Challenge tab3 = new Challenge();
+                    ChallengesFragment tab3 = new ChallengesFragment();
                     return tab3;
                 case 3:
-                    Challenge tab4 = new Challenge();
+                    ChallengesFragment tab4 = new ChallengesFragment();
                     return tab4;
 
                 default:

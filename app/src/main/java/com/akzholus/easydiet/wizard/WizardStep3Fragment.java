@@ -20,8 +20,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.joda.time.DateTime;
-
 
 public class WizardStep3Fragment extends WizardBaseFragment {
     private DatabaseReference mDatabase;

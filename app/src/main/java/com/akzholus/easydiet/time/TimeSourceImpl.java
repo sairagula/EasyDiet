@@ -1,13 +1,28 @@
 package com.akzholus.easydiet.time;
 
-/**
- * Created by sairagul on 1/9/18.
- */
-import org.joda.time.DateTime;
+//import org.joda.time.DateTime;
+//
+//public class TimeSourceImpl implements TimeSource {
+//    @Override
+//    public DateTime getCurrentTime() {
+//        return DateTime.now();
+//    }
+//}
 
-public class TimeSourceImpl implements TimeSource {
+import android.util.Log;
+
+import java.util.Calendar;
+import  java.util.Date;
+
+public class  TimeSourceImpl implements TimeSource {
+
     @Override
-    public DateTime getCurrentTime() {
-        return DateTime.now();
+    public Date getCurrentTime() {
+        Calendar cal = Calendar.getInstance();
+        Log.d(TAG, " TIME: " + cal );
+
+        return cal.getTime();
     }
+
 }
+

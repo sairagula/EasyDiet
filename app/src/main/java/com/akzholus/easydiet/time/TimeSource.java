@@ -1,11 +1,14 @@
 package com.akzholus.easydiet.time;
 
-/**
- * Created by sairagul on 1/9/18.
- */
+//import org.joda.time.DateTime;
 
-import org.joda.time.DateTime;
+import android.util.Log;
+
+import java.util.Date;
+import java.util.Calendar;
+
 
 public interface TimeSource {
-    DateTime getCurrentTime();
+    public static final String TAG = "ViewDatabase";
+        Date getCurrentTime();
 }
