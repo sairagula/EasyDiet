@@ -2,7 +2,6 @@ package com.akzholus.easydiet.wizard;
 
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -13,23 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.akzholus.easydiet.GoalVT;
+import com.akzholus.easydiet.valuetypes.GoalVT;
 import com.akzholus.easydiet.R;
 
 import com.akzholus.easydiet.common.Constants;
-import com.akzholus.easydiet.common.GoalProcessPolicy;
 import com.akzholus.easydiet.listeners.InputValidation;
 
 //import org.joda.time.DateTime;
 
 import static com.akzholus.easydiet.common.Formatters.formatGoalDateTime;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Calendar;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 
 public class WizardStep1Fragment extends WizardBaseFragment {

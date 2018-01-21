@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.akzholus.easydiet.GoalVT;
-import com.akzholus.easydiet.MainActivity;
+import com.akzholus.easydiet.valuetypes.GoalVT;
 import com.akzholus.easydiet.R;
 import com.akzholus.easydiet.common.Utils;
 import com.google.firebase.auth.FirebaseAuth;

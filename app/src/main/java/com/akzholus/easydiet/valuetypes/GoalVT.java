@@ -1,4 +1,4 @@
-package com.akzholus.easydiet;
+package com.akzholus.easydiet.valuetypes;
 import com.akzholus.easydiet.common.Formatters;
 
 //import com.google.firebase.database.FirebaseDatabase;

@@ -3,13 +3,11 @@ package com.akzholus.easydiet.wizard;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
-import com.akzholus.easydiet.GoalVT;
+import com.akzholus.easydiet.valuetypes.GoalVT;
 import com.akzholus.easydiet.R;
 
 

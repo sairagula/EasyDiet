@@ -6,17 +6,16 @@
         <item
             android:id="@+id/action_send_feedback"
             android:icon="@drawable/feedback"
-            android:title="Send Feedback"/>
+            android:title="Send Feedback" />
         <item
-            android:id="@+id/action_login"
-            android:icon="@drawable/login"
-            android:title="Log in"
-            android:visible="false"/>
+            android:id="@+id/action_create_goal"
+            android:icon="@drawable/help"
+            android:title="Create a goal" />
 
         <item
             android:id="@+id/action_logout"
             android:icon="@drawable/logout"
-            android:title="@string/action_logout"/>
+            android:title="@string/action_logout" />
 
     </group>
 </menu>

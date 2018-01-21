@@ -40,7 +40,7 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/weight_in_fab"
-            android:onClick="createGoal"
+            android:onClick="weightInFabClicked"
             style="@style/MyFabStyle"/>
 
     </android.support.design.widget.CoordinatorLayout>

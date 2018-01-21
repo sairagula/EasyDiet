@@ -1,12 +1,9 @@
-package com.akzholus.easydiet;
+package com.akzholus.easydiet.valuetypes;
 
-import com.akzholus.easydiet.GoalVT;
+import com.akzholus.easydiet.common.Constants;
 import com.akzholus.easydiet.common.Formatters;
 
-import org.joda.time.DateTime;
-
 import java.util.Date;
-import java.util.List;
 
 public final class GoalTextCardDataVT {
     private final Date startDate;
@@ -33,8 +30,13 @@ public final class GoalTextCardDataVT {
     }
 
     public static GoalTextCardDataVT fromGoal(GoalVT goal) {
-        return new GoalTextCardDataVT(goal.getStartDate(), goal.getEndDate(), 24, goal.getGoalPoundsPerWeek(), 6, 0.4f,
-                goal.getRefereeEmailAddress(), goal.getPledgeAmount());
+        return new GoalTextCardDataVT(goal.getStartDate(), goal.getEndDate(),
+                24, // enddate - today
+                goal.getGoalPoundsPerWeek(),
+                Constants.GOAL_LENGTH_IN_WEEKS,
+                0.4f, // goal.getActualWeights() - currentWeight
+                goal.getRefereeEmailAddress(),
+                goal.getPledgeAmount());
     }
 
 

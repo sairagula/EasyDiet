@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.akzholus.easydiet.common.Constants;
 import com.akzholus.easydiet.common.User;
+import com.akzholus.easydiet.listeners.FabOnClickListener;
 import com.akzholus.easydiet.listeners.NavigationItemSelectedListener;
 import com.akzholus.easydiet.wizard.WizardActivity;
 import com.firebase.ui.auth.AuthUI;
@@ -85,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
         if (User.isLoggedIn()) {
             userName.setText(User.getUserName());
             email.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-            logout.setVisible(true);
-
         }
     }
 
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK) {
-               refresh();
+                refresh();
             } else {
                 startLoginProcess();
             }
@@ -108,9 +107,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void createGoal(View view) {
-        Intent forwardIntent = new Intent(view.getContext(), WizardActivity.class);
-        startActivity(forwardIntent);
+    // Used by FAB
+    public void weightInFabClicked(View view) {
+        new FabOnClickListener().weightInFabClicked(view, getSupportFragmentManager());
     }
 
     public void startLoginProcess() {

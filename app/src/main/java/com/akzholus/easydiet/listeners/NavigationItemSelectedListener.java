@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.akzholus.easydiet.MainActivity;
 import com.akzholus.easydiet.R;
 import com.akzholus.easydiet.common.User;
+import com.akzholus.easydiet.wizard.WizardActivity;
 
 public class NavigationItemSelectedListener
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,10 +31,11 @@ public class NavigationItemSelectedListener
         if (id == R.id.action_logout && User.isLoggedIn()) {
             User.logUserOut();
             activity.startLoginProcess();
-        } else if (id == R.id.action_login && !User.isLoggedIn()) {
-            activity.startLoginProcess();
         } else if (id == R.id.action_send_feedback) {
             sendEmail("EasyHabit - Questions/Feedback", "Email your questions/feedback");
+        } else if (id == R.id.action_create_goal) {
+            Intent forwardIntent = new Intent(activity, WizardActivity.class);
+            activity.startActivity(forwardIntent);
         }
         return true;
     }

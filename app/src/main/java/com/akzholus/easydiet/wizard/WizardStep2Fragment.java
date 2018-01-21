@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.akzholus.easydiet.GoalVT;
 import com.akzholus.easydiet.R;
 
 public class WizardStep2Fragment extends WizardBaseFragment {
