@@ -55,7 +55,7 @@
     <string name="what_is_your_weight">What is your weight today (in %1$s)?</string>
     <string name="your_referee_text">My referee: %1$s</string>
     <string name="you_pledged_text">I pledged $%1$.2f per week</string>
-    <string name="my_goal_i_commited_string">I commited to pay $%1$.2f per week to my referee (%2$s) if weekly goal is not reached</string>
+    <string name="my_goal_i_commited_string">I committed to pay $%1$.2f per week to my referee (%2$s) if weekly goal is not reached</string>
     <string name="notification_please_weight_in">It is time for your weekly weight-in. Please log your weight.</string>
     <string-array name="money_amount_display">
         <item>$ 0</item>
