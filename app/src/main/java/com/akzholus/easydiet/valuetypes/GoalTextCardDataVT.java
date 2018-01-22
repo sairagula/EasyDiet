@@ -50,7 +50,7 @@ public final class GoalTextCardDataVT {
                 remainingDurationInDays,
                 goal.getGoalPoundsPerWeek(),
                 Constants.GOAL_LENGTH_IN_WEEKS,
-                0.4f, // goal.getActualWeights() - WeightInVT weightInVT
+                0.4f, // goal.getActualWeights() -  currentWeight
                 goal.getRefereeEmailAddress(),
                 goal.getPledgeAmount());
 
