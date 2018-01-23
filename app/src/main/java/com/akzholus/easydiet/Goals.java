@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.akzholus.easydiet.common.Constants;
 import com.akzholus.easydiet.common.User;
+import com.akzholus.easydiet.dao.WeightInDao;
 import com.akzholus.easydiet.valuetypes.GoalVT;
+import com.akzholus.easydiet.valuetypes.WeightInVT;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,6 +66,29 @@ public class Goals extends Fragment {
 
                 }
             });
+
+
+            FirebaseDatabase.getInstance().getReference().child(User.getCurrentUser().getUid()).child("weights").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot allWeights) {
+                    List<WeightInVT> weightInVTList = new ArrayList<>();
+                    for (DataSnapshot weightReport : allWeights.getChildren()) {
+                        Log.d(Constants.TAG, "onDataChange: HERE we got in the callback wheeee");
+                        Log.d(Constants.TAG, "onDataChange: Weight from " + weightReport.child("date") + " is " + weightReport.child("weight").getValue());
+                        WeightInVT weightInVT = weightReport.getValue(WeightInVT.class);
+                        weightInVTList.add(weightInVT);
+                        Log.d(Constants.TAG, "onDataChange: LASTWEIGHT:" + weightInVTList);
+                    }
+                    WeightInDao.setWeightInVTList(weightInVTList);
+                    goalsAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
         }
         return rootView;
     }

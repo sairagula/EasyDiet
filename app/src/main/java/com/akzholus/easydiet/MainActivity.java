@@ -20,17 +20,28 @@ import android.widget.TextView;
 
 import com.akzholus.easydiet.common.Constants;
 import com.akzholus.easydiet.common.User;
+import com.akzholus.easydiet.dao.WeightInDao;
 import com.akzholus.easydiet.listeners.FabOnClickListener;
 import com.akzholus.easydiet.listeners.NavigationItemSelectedListener;
+import com.akzholus.easydiet.valuetypes.GoalVT;
+import com.akzholus.easydiet.valuetypes.WeightInVT;
 import com.akzholus.easydiet.wizard.WizardActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private List<WeightInVT> weights = new ArrayList<>();
     private static final int RC_SIGN_IN = 123;
 
     private TextView userName;

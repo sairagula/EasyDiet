@@ -3,14 +3,16 @@ package com.akzholus.easydiet.valuetypes;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by sairagul on 1/20/18.
- */
-
 public class WeightInVT {
     private String id;
     private Date date;
     private  float weight;
+
+//    @Override
+
+//    public String toString() {
+//        return "Your weight is:" + this.getActualWeights() + " Your weekly goal is to loose: " + this.getGoalPoundsPerWeek() + "You will start: " + this.getFormattedStartDate() + " Goal ends: " + this.getFormattedEndDate();
+//    }
 
     public String getId() {
         return id;
@@ -18,6 +20,10 @@ public class WeightInVT {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public WeightInVT() {
+
     }
 
     public WeightInVT(Date date, float weight) {
