@@ -61,6 +61,9 @@ public final class GoalTextCardDataVT {
 
         DateTime endDate = new DateTime(goal.getEndDate());
         int remainingDurationInDays = Days.daysBetween(DateTime.now().toLocalDate(), endDate.toLocalDate()).getDays() + 1;
+        if (remainingDurationInDays <0) {
+            remainingDurationInDays = 0;
+        }
 
         Log.d(Constants.TAG, "Conversion: " + goal.getGoalId() + " " + remainingDurationInDays + " => " + endDate.toString() + " " + goal.getEndDate() + " " + DateTime.now().toString());
         Log.d(Constants.TAG, goal.getActualWeights() + " => LOST " + latestWeight);

@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
         email = (TextView) headerLayout.findViewById(R.id.navigation_email);
         logout = navigationView.getMenu().findItem(R.id.action_logout);
         updateNavigationViewContent();
+
+
     }
 
     private void updateNavigationViewContent() {
@@ -111,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK) {
                 refresh();
+                // Start wizard.
+                Intent forwardIntent = new Intent(this, WizardActivity.class);
+                startActivity(forwardIntent);
             } else {
                 startLoginProcess();
             }
